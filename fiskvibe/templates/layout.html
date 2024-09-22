@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
     {% if title %}
-        <title>Fisk Vibe | {{ title }}</title>
+        <title>FiskVibe | {{ title }}</title>
     {% else %}
         <title>FiskVibe</title>
     {% endif %}
@@ -20,19 +20,23 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="/">FiskVibe</a>
+          <a class="navbar-brand mr-4" href="/"><strong>FiskVibe</strong></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="/">Home</a>
-              <a class="nav-item nav-link" href="/about">About</a>
+              <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+              <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="/login">Login</a>
-              <a class="nav-item nav-link" href="/register">Register</a>
+              <a class="nav-item nav-link" href="{{ url_for('events') }}">Events</a>
+              <a class="nav-item nav-link" href="{{ url_for('mmp') }}">MMP</a>
+              <a class="nav-item nav-link" href="{{ url_for('dining') }}">Dining</a>
+              <a class="nav-item nav-link" href="{{ url_for('resources') }}">Resources</a>
+              <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+              <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
             </div>
           </div>
         </div>
@@ -41,17 +45,26 @@
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
           {% block content %}{% endblock %}
         </div>
         <div class="col-md-4">
           <div class="content-section">
-            <h3>What's new!</h3>
-            <p class='text-muted'>You can put any information here you'd like.
+            <h3>What's new at Fisk!</h3>
+            <p class='text-muted'>Any info you need on the go!
               <ul class="list-group">
                 <li class="list-group-item list-group-item-light">Latest Posts</li>
                 <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-                <li class="list-group-item list-group-item-light">etc</li>
+                <li class="list-group-item list-group-item-light">Events</li>
+                <li class="list-group-item list-group-item-light">Resources</li>
               </ul>
             </p>
           </div>
