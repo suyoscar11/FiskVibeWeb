@@ -26,9 +26,9 @@ def home():
     return render_template('home.html', posts=posts)
 
 
-@app.route("/about")
+@app.route("/feed")
 def about():
-    return render_template('about.html', title='About')
+    return render_template('feed.html', title='Feed')
 
 @app.route("/events")
 def events():
@@ -46,6 +46,7 @@ def dining():
 def resources():
     return render_template('resources.html', title='Resources')
 
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -59,6 +60,7 @@ def register():
         flash('Your account has been created! You are now able to log in', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
 
 
 @app.route("/login", methods=['GET', 'POST'])
