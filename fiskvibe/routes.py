@@ -23,12 +23,12 @@ posts = [
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', posts=posts)
+    return render_template('home.html')
 
 
 @app.route("/feed")
-def about():
-    return render_template('feed.html', title='Feed')
+def feed():
+    return render_template('feed.html', title='Feed', posts=posts)
 
 @app.route("/events")
 def events():
@@ -54,10 +54,10 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        user = User(first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
-        flash('Your account has been created! You are now able to log in', 'success')
+        flash('Congrats! Your account has been created! You can log in now!', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 

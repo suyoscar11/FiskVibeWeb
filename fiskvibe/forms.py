@@ -5,9 +5,15 @@ from fiskvibe.models import User
 
 
 class RegistrationForm(FlaskForm):
+    first_name = StringField('First Name',
+                           validators=[DataRequired(), Length(min=2, max=100)])
+    last_name = StringField('Last Name',
+                           validators=[DataRequired(), Length(min=2, max=100)])
+    fisk_id = StringField('Fisk ID',
+                           validators=[DataRequired(), Length(min=6, max=7)])
     username = StringField('Username',
                            validators=[DataRequired(), Length(min=2, max=20)])
-    email = StringField('Email',
+    email = StringField('Email (Fisk one!)',
                         validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password',
@@ -23,7 +29,8 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user:
             raise ValidationError('That email is taken. Please choose a different one.')
-
+        if not email.data.endswith('@my.fisk.edu'):
+            raise ValidationError('Please use your Fisk email address (@my.fisk.edu).')
 
 class LoginForm(FlaskForm):
     email = StringField('Email',
