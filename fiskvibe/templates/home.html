@@ -30,11 +30,11 @@
                             <!-- Header text content-->
                             <div class="text-center text-xxl-start">
                                 <div class="badge bg-gradient-primary-to-secondary text-white mb-4"><div class="text-uppercase">Simple &middot; useful &middot; Organized</div></div>
-                                <div class="fs-3 fw-light text-muted">Reimagining the digital experience at Fisk University.</div>
+                                <div class="fs-3 fw-light text-muted"><strong>Reimagining the digital experience at Fisk University.</strong></div>
                                 <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">FiskVibe</span></h1>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
                                     {% if current_user.is_authenticated %}
-                                    <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" style="color: #2a55e0;">Ohoo...<strong>{{ current_user.first_name }}</strong>! you're logged in!</a>
+                                    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" style="color: white;">Welcome <strong>{{ current_user.first_name }}</strong>! You're now logged in.</a>
                                     {% else %}
                                     <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="http://127.0.0.1:5000/login">Login</a>
                                     <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="http://127.0.0.1:5000/register">Register</a>
@@ -48,7 +48,7 @@
                                 <div class="profile">
                                     <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
                                     <!-- Watch a tutorial on how to do this on YouTube (link)-->
-                                    <img class="profile-img" src="static/assets/profile.png" alt="..." style="border-radius: 50%; height: 80vh; width: 80vh;border: 5px solid rgb(255, 154, 3);"/>
+                                    <img class="profile-img" src="static/assets/profile.png" alt="..." style="border-radius: 50%; height: 75vh; width: 75vh;border: 5px solid rgb(255, 154, 3);"/>
                                 </div>
                             </div>
                         </div>
@@ -56,18 +56,20 @@
                 </div>
             </header>
             <!-- About Section-->
-            <section class="bg-light py-5">
+            <section class="bg-light py-5" style="border-radius: 1.5em;">
                 <div class="container px-5">
                     <div class="row gx-5 justify-content-center">
                         <div class="col-xxl-8">
                             <div class="text-center my-5">
                                 <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">What is FiskVibe?</span></h2>
                                 <p class="lead fw-light mb-4"></p>
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit dolorum itaque qui unde quisquam consequatur autem. Eveniet quasi nobis aliquid cumque officiis sed rem iure ipsa! Praesentium ratione atque dolorem?</p>
-                                <div class="d-flex justify-content-center fs-2 gap-4">
-                                    <a class="text-gradient" href="#!"><i class="bi bi-twitter"></i></a>
+                                <p class="text-muted">FiskVibe serves as the ultimate platform for Fisk University students, revolutionizing campus information access. By eliminating the need to switch between multiple apps, FiskVibe consolidates all the requirements—event updates, student networking, resources, dining, vital services, and much more—into one convenient hub.
+                                    Effortlessly sign up, connect with like-minded peers, and let our AI chatbot assist with any inquiries—whether it's locating the right contact for your SSN, exploring new campus activities, or suggesting a unique nickname for you.</p>
+                                <a href="https://drive.google.com/file/d/1mTVWs7ceadzawfnIFJvmE767VWys7oOC/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="btn btn-primary btn-sm px-3 py-2 me-sm-3 fs-6 fw-bolder">Ideation file here</div></a>
+                                    <div class="d-flex justify-content-center fs-2 gap-4" style="margin-top: 0.5em;">
                                     <a class="text-gradient" href="#!"><i class="bi bi-linkedin"></i></a>
                                     <a class="text-gradient" href="#!"><i class="bi bi-github"></i></a>
+                                    <a class="text-gradient" href="#!"><i class="bi bi-instagram"></i></a>
                                 </div>
                             </div>
                         </div>

@@ -1,579 +1,350 @@
 {% extends "layout.html" %}
 {% block content %}
-    <!-- index.html -->
-
-<!DOCTYPE html>
-<html lang="en">
-
-<style>
-    /* styles.css */
-
-/* General styling for the entire page */
-
-.wrapper {
-    max-width: 1100px;
-    margin: 15px auto;
+<div class="container">
+    <style>
+        body {
+  width: 50%;
+  margin: 100px auto;
+  background-color: lightgray;
+  font-family: 'Kanit', sans-serif;
 }
 
-/* Calendar container */
-.container-calendar {
-    background: #ffffff;
-    padding: 15px;
-    max-width: 900px;
-    margin: 0 auto;
-    overflow: auto;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: space-between;
+.calendar-base {
+  width: 900px;
+  height: 500px;
+  border-radius: 20px;
+  background-color: white;
+  position: relative;
+  z-index: -1;
+  color: black;
 }
 
-/* Event section styling */
-#event-section {
-    padding: 10px;
-    background: #f5f5f5;
-    margin: 20px 0;
-    border: 1px solid #ccc;
+.year {
+  color: #E8E8E8;
+  font-size: 30px;
+  float: right;
+  position: relative;
+  right: 75px;
+  top: 20px;
+  font-weight: bold;
 }
 
-.container-calendar #left h1 {
-    color: rgb(244, 186, 27);
-    text-align: center;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 10px 0;
+.triangle-left {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-right: 10px solid #E8E8E8;
+  border-bottom: 5px solid transparent;
+  float: right;
+  position: relative;
+  right: 90px;
+  top: 36px;
 }
 
-#event-section h3 {
-    color: rgb(244, 186, 27);
-    font-size: 18px;
-    margin: 0;
+.triangle-right {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-left: 10px solid #E8E8E8;
+  border-bottom: 5px solid transparent;
+  float: right;
+  position: relative;
+  left: 20px;
+  top: 36px;
+}
+.triangle-left:hover{
+  border-right: 10px solid#2ECC71;
+}
+.triangle-right:hover{
+  border-left: 10px solid#2ECC71;
 }
 
-#event-section input[type="date"],
-#event-section input[type="text"] {
-    margin: 10px 0;
-    padding: 5px;
-    width: 80%;
+.month-color {
+  color: #27AE60;
+}
+.month-hover:hover{
+  color:#27e879 !important;
 }
 
-#event-section button {
-    background: rgb(244, 186, 27);
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
+.months {
+  color: #AAAAAA;
+  position: relative;
+  left: 350px;
+  top: 90px;
+  word-spacing: 10px;
 }
 
-.event-marker {
-    position: relative;
+.month-line {
+  border-color: #E8E8E8;
+  position: relative;
+  top: 85px;
+  width: 57%;
+  left: 178px;
 }
 
-.event-marker::after {
-    content: '';
-    display: block;
-    width: 6px;
-    height: 6px;
-    background-color: red;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.days {
+  color: #AAAAAA;
+  position: relative;
+  font-size: 18px;
+  left: 355px;
+  top: 80px;
+  word-spacing: 35px;
+  font-weight: 600;
 }
 
-/* event tooltip styling */
-.event-tooltip {
-    position: absolute;
-    background-color: rgba(234, 232, 232, 0.763);
-    color: black;
-    padding: 10px;
-    border-radius: 4px;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: none;
-    transition: all 0.3s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+.num-dates {
+  float: right;
+  position: relative;
+  top: 110px;
+  right: 50px;
+  z-index: 1;
 }
 
-.event-marker:hover .event-tooltip {
-    display: block;
+.first-week {
+  margin-bottom: 25px;
+  word-spacing: 55px;
 }
 
-/* Reminder section styling */
-#reminder-section {
-    padding: 10px;
-    background: #f5f5f5;
-    margin: 20px 0;
-    border: 1px solid #ccc;
+.second-week {
+  margin-bottom: 25px;
+  word-spacing: 53px;
 }
 
-#reminder-section h3 {
-    color: rgb(244, 186, 27);
-    font-size: 18px;
-    margin: 0;
+.third-week {
+  margin-bottom: 25px;
+  word-spacing: 58px;
 }
 
-#reminderList {
-    list-style: none;
-    padding: 0;
+.fourth-week {
+  margin-bottom: 25px;
+  word-spacing: 58px;
 }
 
-#reminderList li {
-    margin: 5px 0;
-    font-size: 16px;
+.fifth-week {
+  margin-bottom: 25px;
+  word-spacing: 56px;
 }
 
-/* Style for the delete buttons */
-.delete-event {
-    background: rgb(237, 19, 19);
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    margin-left: 10px;
-    align-items: right;
+.sixth-week {
+  margin-bottom: 25px;
+  word-spacing: 55px;
 }
 
-/* Buttons in the calendar */
-.button-container-calendar button {
-    cursor: pointer;
-    background: rgb(244, 186, 27);
-    color: #fff;
-    border: 1px solid rgb(244, 186, 27);
-    border-radius: 4px;
-    padding: 5px 10px;
+.active-day {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #2ECC71;
+  position: relative;
+  top: 295px;
+  left: 661px;
 }
 
-/* Calendar table */
-.table-calendar {
-    border-collapse: collapse;
-    width: 100%;
+.white {
+  color: white;
 }
 
-.table-calendar td,
-.table-calendar th {
-    padding: 5px;
-    border: 1px solid #e2e2e2;
-    text-align: center;
-    vertical-align: top;
+.event-indicator {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #2980B9;
+  position: relative;
+  top: 304px;
+  left: 695px;
 }
 
-/* Date picker */
-.date-picker.selected {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    outline: 1px dashed #00BCD4;
+.two {
+  position: relative;
+  top: 168px;
+  left: 535px;
 }
 
-.date-picker.selected span {
-    border-bottom: 2px solid currentColor;
+.grey {
+  color: #AAAAB1;
 }
 
-/* Day-specific styling */
-.date-picker:nth-child(1) {
-    color: red;
-    /* Sunday */
+.calendar-left {
+  width: 300px;
+  height: 500px;
+  border-radius: 20px 0px 0px 20px;
+  background-color: #2ECC71;
+  position: relative;
+  z-index: -1;
+  bottom: 500px;
+  color: white;
 }
 
-.date-picker:nth-child(6) {
-    color: rgb(244, 186, 27);
-    /* Friday */
+.hamburger {
+  position: relative;
+  top: 25px;
+  left: 25px;
 }
 
-/* Hover effect for date cells */
-.date-picker:hover {
-    background-color: rgb(244, 186, 27);
-    color: white;
-    cursor: pointer;
+.burger-line:hover, .hamburger:hover{
+  background-color:#27e879 !important;
 }
 
-/* Header for month and year */
-#monthAndYear {
-    text-align: center;
-    margin-top: 0;
+.burger-line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 15%;
+  margin-bottom: 3px;
 }
 
-/* Navigation buttons */
-.button-container-calendar {
-    position: relative;
-    margin-bottom: 1em;
-    overflow: hidden;
-    clear: both;
+.num-date {
+  font-size: 150px;
+  width: 50%;
+  margin: 0 auto;
+  font-weight: 700;
 }
 
-#previous {
-    float: left;
+.day {
+  width: 50%;
+  margin: 0px auto;
+  font-size: 30px;
+  position: relative;
+  bottom: 60px;
 }
 
-#next {
-    float: right;
+.current-events {
+  font-size: 15px;
+  position: relative;
+  margin-left: 25px;
+  bottom: 30px;
 }
 
-/* Footer styling */
-.footer-container-calendar {
-    margin-top: 1em;
-    border-top: 1px solid #dadada;
-    padding: 10px 0;
+.posts {
+  text-decoration: underline dotted;
+}
+.posts:hover{
+  color:#27e879 !important;
 }
 
-.footer-container-calendar select {
-    cursor: pointer;
-    background: #ffffff;
-    color: #585858;
-    border: 1px solid #bfc5c5;
-    border-radius: 3px;
-    padding: 5px 1em;
+.create-event {
+  font-size: 18px;
+  position: relative;
+  margin-top: 30px;
+  margin-left: 25px;
 }
 
-</style>
+.event-line {
+  width: 90%;
+}
 
-<body>
-    <!-- Main wrapper for the calendar application -->
-    <div class="wrapper">
-        <div class="container-calendar">
-            <div id="left">
-                <h1>Events at Fisk</h1>
-                <div id="event-section">
-                    <h3>Add Event</h3>
-                    <input type="date" id="eventDate">
-                    <input type="text"
-                        id="eventTitle"
-                        placeholder="Event Title">
-                    <input type="text"
-                        id="eventDescription"
-                        placeholder="Event Description">
-                    <button id="addEvent" onclick="addEvent()">
-                        Add
-                    </button>
-                </div>
-                <div id="reminder-section">
-                    <h3>Upcoming Events</h3>
-                    <!-- List to display reminders -->
-                    <ul id="reminderList">
-                        <li data-event-id="1">
-                            <strong>Event Title</strong>
-                            - Event Description on Event Date
-                            <button class="delete-event"
-                                onclick="deleteEvent(1)">
-                                Delete
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div id="right">
-                <h3 id="monthAndYear"></h3>
-                <div class="button-container-calendar">
-                    <button id="previous"
-                            onclick="previous()">
-                        ‹
-                    </button>
-                    <button id="next"
-                            onclick="next()">
-                        ›
-                    </button>
-                </div>
-                <table class="table-calendar"
-                    id="calendar"
-                    data-lang="en">
-                    <thead id="thead-month"></thead>
-                    <!-- Table body for displaying the calendar -->
-                    <tbody id="calendar-body"></tbody>
-                </table>
-                <div class="footer-container-calendar">
-                    <label for="month">Jump To: </label>
-                    <!-- Dropdowns to select a specific month and year -->
-                    <select id="month" onchange="jump()">
-                        <option value=0>Jan</option>
-                        <option value=1>Feb</option>
-                        <option value=2>Mar</option>
-                        <option value=3>Apr</option>
-                        <option value=4>May</option>
-                        <option value=5>Jun</option>
-                        <option value=6>Jul</option>
-                        <option value=7>Aug</option>
-                        <option value=8>Sep</option>
-                        <option value=9>Oct</option>
-                        <option value=10>Nov</option>
-                        <option value=11>Dec</option>
-                    </select>
-                    <!-- Dropdown to select a specific year -->
-                    <select id="year" onchange="jump()"></select>
-                </div>
-            </div>
-        </div>
+.add-event {
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  border-radius: 50%;
+  border: solid white 2px;
+  position: relative;
+  bottom: 42px;
+  left: 260px;
+}
+
+.add {
+  font-size: 25px;
+  position: relative;
+  left: 4px;
+  bottom: 10px;
+}
+
+.add:hover, .create-event:hover, .add-event:hover{
+  color:#27e879 !important;
+  border-color: #27e879 !important;
+}
+    </style>
+    <div class="calendar-base">
+  
+      <div class="year">2017</div>
+      <!-- year -->
+  
+      <div class="triangle-left"></div>
+      <!--triangle -->
+      <div class="triangle-right"></div>
+      <!--  triangle -->
+  
+      <div class="months">
+        <span class="month-hover">Jan</span>
+        <span class="month-hover">Feb</span> 
+        <span class="month-hover">Mar</span> 
+        <strong class="month-color">Apr</strong>
+        <span class="month-hover">May</span>
+        <span class="month-hover">Jun</span>
+        <span class="month-hover">July</span> 
+        <span class="month-hover">Aug</span> 
+        <span class="month-hover">Sep</span> 
+        <span class="month-hover">Oct</span> 
+        <span class="month-hover">Nov</span> 
+        <span class="month-hover">Dec</span>
+      </div><!-- months -->
+      <hr class="month-line" />
+  
+      <div class="days">SUN MON TUE WED THU FRI SAT</div>
+      <!-- days -->
+  
+      <div class="num-dates">
+  
+        <div class="first-week"><span class="grey">26 27 28 29 30 31</span> 01</div>
+        <!-- first week -->
+        <div class="second-week">02 03 04 05 06 07 08</div>
+        <!-- week -->
+        <div class="third-week"> 09 10 11 12 13 14 15</div>
+        <!-- week -->
+        <div class="fourth-week"> 16 17 18 19 20 21 22</div>
+        <!-- week -->
+        <div class="fifth-week"> 23 24 25 26 <strong class="white">27</strong> 28 29</div>
+        <!-- week -->
+        <div class="sixth-week"> 30 <span class="grey">01 02 03 04 05 06</span></div>
+        <!-- week -->
+      </div>
+      <!-- num-dates -->
+      <div class="event-indicator"></div>
+      <!-- event-indicator -->
+      <div class="active-day"></div>
+      <!-- active-day -->
+      <div class="event-indicator two"></div>
+      <!-- event-indicator -->
+  
     </div>
-    <!-- Include the JavaScript file for the calendar functionality -->
-    <script>// script.js
-
-        // Define an array to store events
-        let events = [];
-        
-        // letiables to store event input fields and reminder list
-        let eventDateInput =
-            document.getElementById("eventDate");
-        let eventTitleInput =
-            document.getElementById("eventTitle");
-        let eventDescriptionInput =
-            document.getElementById("eventDescription");
-        let reminderList =
-            document.getElementById("reminderList");
-        
-        // Counter to generate unique event IDs
-        let eventIdCounter = 1;
-        
-        // Function to add events
-        function addEvent() {
-            let date = eventDateInput.value;
-            let title = eventTitleInput.value;
-            let description = eventDescriptionInput.value;
-        
-            if (date && title) {
-                // Create a unique event ID
-                let eventId = eventIdCounter++;
-        
-                events.push(
-                    {
-                        id: eventId, date: date,
-                        title: title,
-                        description: description
-                    }
-                );
-                showCalendar(currentMonth, currentYear);
-                eventDateInput.value = "";
-                eventTitleInput.value = "";
-                eventDescriptionInput.value = "";
-                displayReminders();
-            }
-        }
-        
-        // Function to delete an event by ID
-        function deleteEvent(eventId) {
-            // Find the index of the event with the given ID
-            let eventIndex =
-                events.findIndex((event) =>
-                    event.id === eventId);
-        
-            if (eventIndex !== -1) {
-                // Remove the event from the events array
-                events.splice(eventIndex, 1);
-                showCalendar(currentMonth, currentYear);
-                displayReminders();
-            }
-        }
-        
-        // Function to display reminders
-        function displayReminders() {
-            reminderList.innerHTML = "";
-            for (let i = 0; i < events.length; i++) {
-                let event = events[i];
-                let eventDate = new Date(event.date);
-                if (eventDate.getMonth() ===
-                    currentMonth &&
-                    eventDate.getFullYear() ===
-                    currentYear) {
-                    let listItem = document.createElement("li");
-                    listItem.innerHTML =
-                        `<strong>${event.title}</strong> - 
-                    ${event.description} on 
-                    ${eventDate.toLocaleDateString()}`;
-        
-                    // Add a delete button for each reminder item
-                    let deleteButton =
-                        document.createElement("button");
-                    deleteButton.className = "delete-event";
-                    deleteButton.textContent = "Delete";
-                    deleteButton.onclick = function () {
-                        deleteEvent(event.id);
-                    };
-        
-                    listItem.appendChild(deleteButton);
-                    reminderList.appendChild(listItem);
-                }
-            }
-        }
-        
-        // Function to generate a range of 
-        // years for the year select input
-        function generate_year_range(start, end) {
-            let years = "";
-            for (let year = start; year <= end; year++) {
-                years += "<option value='" +
-                    year + "'>" + year + "</option>";
-            }
-            return years;
-        }
-        
-        // Initialize date-related letiables
-        today = new Date();
-        currentMonth = today.getMonth();
-        currentYear = today.getFullYear();
-        selectYear = document.getElementById("year");
-        selectMonth = document.getElementById("month");
-        
-        createYear = generate_year_range(1970, 2050);
-        
-        document.getElementById("year").innerHTML = createYear;
-        
-        let calendar = document.getElementById("calendar");
-        
-        let months = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"
-        ];
-        let days = [
-            "Sun", "Mon", "Tue", "Wed",
-            "Thu", "Fri", "Sat"];
-        
-        $dataHead = "<tr>";
-        for (dhead in days) {
-            $dataHead += "<th data-days='" +
-                days[dhead] + "'>" +
-                days[dhead] + "</th>";
-        }
-        $dataHead += "</tr>";
-        
-        document.getElementById("thead-month").innerHTML = $dataHead;
-        
-        monthAndYear =
-            document.getElementById("monthAndYear");
-        showCalendar(currentMonth, currentYear);
-        
-        // Function to navigate to the next month
-        function next() {
-            currentYear = currentMonth === 11 ?
-                currentYear + 1 : currentYear;
-            currentMonth = (currentMonth + 1) % 12;
-            showCalendar(currentMonth, currentYear);
-        }
-        
-        // Function to navigate to the previous month
-        function previous() {
-            currentYear = currentMonth === 0 ?
-                currentYear - 1 : currentYear;
-            currentMonth = currentMonth === 0 ?
-                11 : currentMonth - 1;
-            showCalendar(currentMonth, currentYear);
-        }
-        
-        // Function to jump to a specific month and year
-        function jump() {
-            currentYear = parseInt(selectYear.value);
-            currentMonth = parseInt(selectMonth.value);
-            showCalendar(currentMonth, currentYear);
-        }
-        
-        // Function to display the calendar
-        function showCalendar(month, year) {
-            let firstDay = new Date(year, month, 1).getDay();
-            tbl = document.getElementById("calendar-body");
-            tbl.innerHTML = "";
-            monthAndYear.innerHTML = months[month] + " " + year;
-            selectYear.value = year;
-            selectMonth.value = month;
-        
-            let date = 1;
-            for (let i = 0; i < 6; i++) {
-                let row = document.createElement("tr");
-                for (let j = 0; j < 7; j++) {
-                    if (i === 0 && j < firstDay) {
-                        cell = document.createElement("td");
-                        cellText = document.createTextNode("");
-                        cell.appendChild(cellText);
-                        row.appendChild(cell);
-                    } else if (date > daysInMonth(month, year)) {
-                        break;
-                    } else {
-                        cell = document.createElement("td");
-                        cell.setAttribute("data-date", date);
-                        cell.setAttribute("data-month", month + 1);
-                        cell.setAttribute("data-year", year);
-                        cell.setAttribute("data-month_name", months[month]);
-                        cell.className = "date-picker";
-                        cell.innerHTML = "<span>" + date + "</span";
-        
-                        if (
-                            date === today.getDate() &&
-                            year === today.getFullYear() &&
-                            month === today.getMonth()
-                        ) {
-                            cell.className = "date-picker selected";
-                        }
-        
-                        // Check if there are events on this date
-                        if (hasEventOnDate(date, month, year)) {
-                            cell.classList.add("event-marker");
-                            cell.appendChild(
-                                createEventTooltip(date, month, year)
-                        );
-                        }
-        
-                        row.appendChild(cell);
-                        date++;
-                    }
-                }
-                tbl.appendChild(row);
-            }
-        
-            displayReminders();
-        }
-        
-        // Function to create an event tooltip
-        function createEventTooltip(date, month, year) {
-            let tooltip = document.createElement("div");
-            tooltip.className = "event-tooltip";
-            let eventsOnDate = getEventsOnDate(date, month, year);
-            for (let i = 0; i < eventsOnDate.length; i++) {
-                let event = eventsOnDate[i];
-                let eventDate = new Date(event.date);
-                let eventText = `<strong>${event.title}</strong> - 
-                    ${event.description} on 
-                    ${eventDate.toLocaleDateString()}`;
-                let eventElement = document.createElement("p");
-                eventElement.innerHTML = eventText;
-                tooltip.appendChild(eventElement);
-            }
-            return tooltip;
-        }
-        
-        // Function to get events on a specific date
-        function getEventsOnDate(date, month, year) {
-            return events.filter(function (event) {
-                let eventDate = new Date(event.date);
-                return (
-                    eventDate.getDate() === date &&
-                    eventDate.getMonth() === month &&
-                    eventDate.getFullYear() === year
-                );
-            });
-        }
-        
-        // Function to check if there are events on a specific date
-        function hasEventOnDate(date, month, year) {
-            return getEventsOnDate(date, month, year).length > 0;
-        }
-        
-        // Function to get the number of days in a month
-        function daysInMonth(iMonth, iYear) {
-            return 32 - new Date(iYear, iMonth, 32).getDate();
-        }
-        
-        // Call the showCalendar function initially to display the calendar
-        showCalendar(currentMonth, currentYear);
-        </script>
-</body>
-
-</html>
+    <!-- calendar-base -->
+    <div class="calendar-left">
+  
+      <div class="hamburger">
+        <div class="burger-line"></div>
+        <!-- burger-line -->
+        <div class="burger-line"></div>
+        <!-- burger-line -->
+        <div class="burger-line"></div>
+        <!-- burger-line -->
+      </div>
+      <!-- hamburger -->
+  
+  
+      <div class="num-date">27</div>
+      <!--num-date -->
+      <div class="day">THURSDAY</div>
+      <!--day -->
+      <div class="current-events">Current Events
+        <br/>
+        <ul>
+          <li>Day 09 Daily CSS Image</li>
+        </ul>
+        <span class="posts">See post events</span></div>
+      <!--current-events -->
+  
+      <div class="create-event">Create an Event</div>
+      <!-- create-event -->
+      <hr class="event-line" />
+      <div class="add-event"><span class="add">+</span></div>
+      <!-- add-event -->
+  
+    </div>
+    <!-- calendar-left -->
+  
+  </div>
+  <!-- container -->
 
 {% endblock content %}
