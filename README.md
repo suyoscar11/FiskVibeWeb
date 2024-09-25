@@ -1,2 +1,2 @@
-##FiskVibe
-This is a web app for our beloved project FiskVibe.
+# FiskVibe Web Application
+This is a repo for our beloved FiskVibe project.
