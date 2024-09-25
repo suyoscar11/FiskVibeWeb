@@ -3,6 +3,12 @@
     <div class="content-section">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
+            <div class="" style="margin-top: 0em; width: 50%; margin-left: auto; margin-right: auto; padding: 1em; background-color: rgba(98, 98, 98, 0); padding: 1em; text-align: center;">
+                <p class="text-muted" style="margin: auto; text-align: center;">
+                    Need Account?<a class="ml-2" href="{{ url_for('register') }}" style="display: inline-block; text-decoration: none; padding: 5px 20px; background-color: #007bff; color: white; border-radius: 10em;">Sign Up</a>
+                </p>
+            </div>
+            
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4"><strong>LogIn | FiskVibe</strong></legend>
                 <div class="form-group">
@@ -45,9 +51,5 @@
             
         </form>
     </div>
-    <div class="border-top pt-3">
-        <p1 class="text-muted">
-            Need An Account? <a class="ml-2" href="{{ url_for('register') }}">Sign Up Now</a>
-        </small>
-    </p1>
+   
 {% endblock content %}

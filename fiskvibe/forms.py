@@ -13,7 +13,7 @@ class RegistrationForm(FlaskForm):
                            validators=[DataRequired(), Length(min=6, max=7)])
     username = StringField('Username',
                            validators=[DataRequired(), Length(min=2, max=20)])
-    email = StringField('Email (Fisk one!)',
+    email = StringField('Email (@my.fisk.edu)',
                         validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password',
@@ -34,7 +34,7 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user:
             raise ValidationError('That email is taken. Please choose a different one.')
-        if not email.data.endswith('@gmail.com'):
+        if not email.data.endswith('@my.fisk.edu'):
             raise ValidationError('Please use your Fisk email address (@my.fisk.edu).')
         
         

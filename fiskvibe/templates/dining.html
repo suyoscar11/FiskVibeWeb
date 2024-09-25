@@ -1,4 +1,203 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Dining Page</h1>
+
+<!-- Bootstrap CSS Link -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    /* Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+    /* Global Styling */
+    /* body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f5f5f5;
+        color: #2c3e50;
+    } */
+
+    h1, h2, h3 {
+        font-weight: 600;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: #2c3e50;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: #1f2b34;
+    }
+
+    p {
+        font-size: 1rem;
+        color: #7f8c8d;
+        line-height: 1.7;
+    }
+
+    /* Button Styles */
+    .btn-custom {
+        background-color: #2a55e0;
+        color: white;
+        border-radius: 50px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-custom:hover {
+        background-color: #2980b9;
+        color: #fff;
+    }
+
+    /* Section Styling */
+    .section {
+        padding: 4rem 0;
+        border-radius: 1em;
+    }
+
+    .section-heading {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .profile-img {
+        max-width: 80%;
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-img-2 {
+        max-width: 100%;
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Scroll to Top Button */
+    .scrolltop {
+        position: fixed;
+        right: 1rem;
+        bottom: -20%;
+        padding: 0.75rem;
+        background-color: #3498db;
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+        transition: all 0.4s;
+        z-index: 1000;
+        display: none;
+    }
+
+    .scrolltop.show-scroll {
+        display: flex;
+        bottom: 1.5rem;
+    }
+</style>
+
+<main class="l-main" style="width: 90%; margin: auto;">
+    <!--========== HOME SECTION ==========-->
+    <section class="section bg-yellow" id="home" style="margin-top: 5em; background-color: #f8f9fa;">
+        <div class="container" style="width: 80%;">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-6">
+                    <h1>Fisk Dining | Sodexo</h1>
+                    <p>Enjoy the best food every day at Fisk Dining, powered by Sodexo. Our chefs work tirelessly to bring you delicious, nutritious, and exciting meals that cater to every student's taste.</p>
+                    <a href="#" class="btn btn-custom mt-3">View Today's Menu</a>
+                </div>
+                <div class="col-md-5">
+                    <img src="static/assets/food.jpg" alt="Delicious food at Fisk Dining" class="profile-img-2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--========== ABOUT SECTION ==========-->
+    <section class="section" id="about" style="background-color: #f8f9fa; margin-top: 2em;">
+        <div class="container">
+            <div class="section-heading">
+                <h2>About Us</h2>
+                <p class="text-muted">Delivering the best dining experience at Fisk University</p>
+            </div>
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-6">
+                    <img src="static/assets/food_phto.jpg" alt="Tasty food at Fisk Dining" class="profile-img">
+                </div>
+                <div class="col-md-6">
+                    <h3>Why Choose Fisk Dining?</h3>
+                    <p>Fisk Dining is more than just a place to eat. We create an experience. Our meals are designed to suit a variety of dietary preferences and are made with the freshest ingredients. Whether you are vegan, vegetarian, or a meat-lover, we have something for everyone. Our team works hard to ensure every meal is prepared with care, and we value feedback from our students to constantly improve.</p>
+                    <a href="#" class="btn btn-custom">Explore What We Offer</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--========== SERVICES SECTION ==========-->
+    <section class="section" id="services" style="margin-top: 2em; background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Services</h2>
+                <p class="text-muted">What we bring to the table</p>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="p-4 border rounded shadow-sm bg-light">
+                        <i class="fa fa-utensils fa-2x mb-3 text-primary"></i>
+                        <h4>Daily Menus</h4>
+                        <p>We provide a rotating menu with new dishes every day, making sure that there’s always something new to try.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 border rounded shadow-sm bg-light">
+                        <i class="fa fa-leaf fa-2x mb-3 text-success"></i>
+                        <h4>Fresh Ingredients</h4>
+                        <p>All meals are made with fresh, high-quality ingredients sourced locally whenever possible.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 border rounded shadow-sm bg-light">
+                        <i class="fa fa-heart fa-2x mb-3 text-danger"></i>
+                        <h4>Dietary Options</h4>
+                        <p>We accommodate dietary preferences, with options like vegetarian, vegan, gluten-free, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--========== CONTACT SECTION ==========-->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Contact Us</h2>
+                <p class="text-muted">We would love to hear from you!</p>
+            </div>
+            <div class="text-center">
+                <!-- <p>Have any questions or suggestions? Get in touch with us and let us know how we can improve your dining experience at Fisk University.</p> -->
+                <a href="#" class="btn btn-custom">Contact Us Now</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ========== Scroll to Top Button ==========
+<div class="scrolltop" id="scroll-top">
+    <i class="fas fa-chevron-up"></i>
+</div> -->
+
+<!-- Bootstrap JS and Font Awesome -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<!-- Scroll to top button functionality -->
+<script>
+    const scrollTopButton = document.getElementById('scroll-top');
+    window.onscroll = function () {
+        if (window.pageYOffset > 400) {
+            scrollTopButton.classList.add('show-scroll');
+        } else {
+            scrollTopButton.classList.remove('show-scroll');
+        }
+    };
+</script>
+
 {% endblock content %}

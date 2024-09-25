@@ -3,100 +3,141 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
-        <!-- Custom Google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="static/css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100">
-        <main class="flex-shrink-0">
-    
-            <!-- Header-->
-            <header class="py-5">
-                <div class="container px-5 pb-5">
-                    <div class="row gx-5 align-items-center">
-                        <div class="col-xxl-5">
-                            <!-- Header text content-->
-                            <div class="text-center text-xxl-start">
-                                <div class="badge bg-gradient-primary-to-secondary text-white mb-4"><div class="text-uppercase">Simple &middot; useful &middot; Organized</div></div>
-                                <div class="fs-3 fw-light text-muted"><strong>Reimagining the digital experience at Fisk University.</strong></div>
-                                <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">FiskVibe</span></h1>
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                                    {% if current_user.is_authenticated %}
-                                    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" style="color: white;">Welcome <strong>{{ current_user.first_name }}</strong>! You're now logged in.</a>
-                                    {% else %}
-                                    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="http://127.0.0.1:5000/login">Login</a>
-                                    <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="http://127.0.0.1:5000/register">Register</a>
-                                    {% endif %}
-                                </div>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    <!-- Custom Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="static/css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+
+        <!-- Header-->
+        <header class="bg-light py-5" style="border-radius: 1.5em; margin-bottom: 2em; margin-top: 1em;">
+            <div class="container px-5 pb-5 px-2 py-3 d-flex flex-column align-items-center justify-content-center"
+                style="width: 90%; margin: auto">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-xxl-5">
+                        <!-- Header text content-->
+                        <div class="text-center text-xxl-start">
+                            <div class="badge bg-dark mb-10">
+                                <div class="text-uppercase">Simple &middot; useful &middot; Organized</div>
                             </div>
+                            <div class="fs-3 fw-light text-muted"><strong>Reimagining the digital experience at Fisk
+                                    University.</strong></div>
+                            <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient dd-inline">
+                            <img src="static/assets/logo.png" alt="" style="height: 67.5px; width: 300px;">
                         </div>
-                        <div class="col-xxl-7">
-                            <!-- Header profile picture-->
-                            <div class="d-flex justify-content-center mt-5 mt-xxl-0">
-                                <div class="profile">
-                                    <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
-                                    <!-- Watch a tutorial on how to do this on YouTube (link)-->
-                                    <img class="profile-img" src="static/assets/profile.png" alt="..." style="border-radius: 50%; height: 75vh; width: 75vh;border: 5px solid rgb(255, 154, 3);"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <!-- About Section-->
-            <section class="bg-light py-5" style="border-radius: 1.5em;">
-                <div class="container px-5">
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-xxl-8">
-                            <div class="text-center my-5">
-                                <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">What is FiskVibe?</span></h2>
-                                <p class="lead fw-light mb-4"></p>
-                                <p class="text-muted">FiskVibe serves as the ultimate platform for Fisk University students, revolutionizing campus information access. By eliminating the need to switch between multiple apps, FiskVibe consolidates all the requirements—event updates, student networking, resources, dining, vital services, and much more—into one convenient hub.
-                                    Effortlessly sign up, connect with like-minded peers, and let our AI chatbot assist with any inquiries—whether it's locating the right contact for your SSN, exploring new campus activities, or suggesting a unique nickname for you.</p>
-                                <a href="https://drive.google.com/file/d/1mTVWs7ceadzawfnIFJvmE767VWys7oOC/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="btn btn-primary btn-sm px-3 py-2 me-sm-3 fs-6 fw-bolder">Ideation file here</div></a>
-                                    <div class="d-flex justify-content-center fs-2 gap-4" style="margin-top: 0.5em;">
-                                    <a class="text-gradient" href="#!"><i class="bi bi-linkedin"></i></a>
-                                    <a class="text-gradient" href="#!"><i class="bi bi-github"></i></a>
-                                    <a class="text-gradient" href="#!"><i class="bi bi-instagram"></i></a>
-                                </div>
+                        <div class="text-center text-xxl-start">
+                            </span></h1>
+                            <div
+                                class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
+                                {% if current_user.is_authenticated %}
+                                <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder"
+                                    style="color: white;">Welcome <strong>{{ current_user.first_name }}</strong>! You're
+                                    now logged in.</a>
+                                {% else %}
+                                <a class="btn btn-primary btn-lg px-4 py-2 me-sm-30 fs-10 fw-bolder"
+                                    href="http://127.0.0.1:5000/login">Login</a>
+                                <a class="btn btn-dark btn-lg px-4 py-2 fs-10 fw-bolder"
+                                    href="http://127.0.0.1:5000/register">Register</a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </main>
-        <!-- Footer-->
-        <footer class="bg-white py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0">Copyright &copy; FiskVibe 2024</div></div>
-                    <div class="col-auto">
-                        <a class="small" href="#!">Privacy</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Terms</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Contact</a>
+                    <div class="col-xxl-7">
+                        <!-- Header profile picture-->
+                        <div class="d-flex justify-content-center mt-5 mt-xxl-0">
+                            <div class="profile">
+                                <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
+                                <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
+<div>
+    {% if current_user.is_authenticated %}
+        <!-- Display when user is authenticated -->
+        <img class="profile-img" src="static/assets/fisk.png" alt="..."
+        style="height: 150px; width: 370px; position: absolute; right: 0; top: 50%; transform: translateY(-50%); margin-right: 20px;" />
+    {% else %}
+        <!-- Display when user is not authenticated -->
+        <img class="profile-img" src="static/assets/profile.png" alt="..."
+        style="border-radius: 50%; height: 75vh; width: 75vh; border: 5px solid rgba(255, 154, 3, 0.303); margin-top: -50px;" />
+    {% endif %}
+</div>
+
+                                </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="static/js/scripts.js"></script>
-    </body>
+        </header>
+        <!-- About Section-->
+        <section class="bg-light py-5" style="border-radius: 1.5em;">
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-xxl-11">
+                        <div class="text-center my-5">
+                            <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">What is
+                                    FiskVibe?</span></h2>
+                            <p class="lead fw-light mb-4"></p>
+                            <p class="text-muted">FiskVibe serves as the ultimate platform for Fisk University students,
+                                revolutionizing campus information access. By eliminating the need to switch between
+                                multiple apps, FiskVibe consolidates all the requirements—event updates, student
+                                networking, resources, dining, vital services, and much more—into one convenient hub.
+                                Effortlessly sign up, connect with like-minded peers, and let our AI chatbot assist with
+                                any inquiries—whether it's locating the right contact for your SSN, exploring new campus
+                                activities, or suggesting a unique nickname for you.</p>
+                            <a href="https://drive.google.com/file/d/1mTVWs7ceadzawfnIFJvmE767VWys7oOC/view?usp=sharing"
+                                target="_blank" rel="noopener noreferrer">
+                                <div class="btn btn-primary btn-sm px-3 py-2 me-sm-3 fs-6 fw-bolder">Ideation file here
+                                </div>
+                            </a>
+                            <div class="d-flex justify-content-center fs-2 gap-4" style="margin-top: 0.5em;">
+                                <a class="text-gradient" href="#!"><i class="bi bi-linkedin"></i></a>
+                                <a class="text-gradient" href="#!"><i class="bi bi-github"></i></a>
+                                <a class="text-gradient" href="#!"><i class="bi bi-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer-->
+    <footer class="bg-white py-4 mt-auto">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto">
+                    <div class="small m-0">Copyright &copy; FiskVibe 2024</div>
+                </div>
+                <div class="col-auto">
+                    <a class="small" href="#!">Privacy</a>
+                    <span class="mx-1">&middot;</span>
+                    <a class="small" href="#!">Terms</a>
+                    <span class="mx-1">&middot;</span>
+                    <a class="small" href="#!">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="static/js/scripts.js"></script>
+</body>
+
 </html>
 
 {% endblock content %}

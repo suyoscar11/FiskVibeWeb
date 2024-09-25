@@ -3,9 +3,14 @@
     <div class="content-section">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
+            <div class="" style="margin-top: 0em; width: 50%; margin-left: auto; margin-right: auto; padding: 1em; background-color: rgba(98, 98, 98, 0); padding: 1em; text-align: center;">
+                <p class="text-muted" style="margin: auto; text-align: center;">
+                    Have an Account? <a class="ml-2" href="{{ url_for('login') }}" style="display: inline-block; text-decoration: none; padding: 5px 20px; background-color: #007bff; color: white; border-radius: 10em;">Login</a>
+                </p>
+            </div>
             <fieldset class="form-group">
 
-                <legend class="border-bottom mb-4"><strong>New here? - Register | FiskVibe</strong></legend>
+                <legend class="border-bottom mb-4"><strong>Register | FiskVibe</strong></legend>
                 
                 <div class="form-group">
                     {{ form.first_name.label(class="form-control-label") }}
@@ -114,9 +119,6 @@
             </div>
         </form>
     </div>
-    <div class="border-top pt-3 border-bottom pt-3 ">
-        <p1 class="text-muted" style="padding-bottom: 5em;">
-            Already Have An Account? <a class="ml-1" href="{{ url_for('login') }}">Sign In</a>
-        </p1>
-    </div>
+    <div class="mb-4"></div>
+    
 {% endblock content %}

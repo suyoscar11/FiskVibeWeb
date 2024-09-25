@@ -1,7 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
+<button type="button" class="btn btn-primary btn-md btn-block mb-3" style="width: 70%; margin: auto;">Keep Scrolling | Feed, FiskVibe</button>
+
     {% for post in posts %}
-        <article class="media content-section">
+
+        <article class="media content-section" style="margin-bottom: 1em; width: 70%;">
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ post.author }}</a>

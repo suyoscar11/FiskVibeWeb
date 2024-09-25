@@ -10,6 +10,8 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
+    <!-- removing bg pic for login -->
+
     {% if title %}
         <title>{{ title }} | FiskVibe</title>
     {% else %}
@@ -18,7 +20,7 @@
 </head>
 <body>
     <div class="mobile-message">
-        <p>FiskVibe is coming soon for phones too!</p>
+        <p>FiskVibe is coming soon for mobile phones too!</p>
         <a href="https://drive.google.com/file/d/1mTVWs7ceadzawfnIFJvmE767VWys7oOC/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="btn btn-primary btn-sm px-3 py-2 me-sm-3 fs-6 fw-bolder">Ideation file here</div></a>
         <p>For now, please use a desktop device to access! Thank you!</p>
         
@@ -43,8 +45,7 @@
                 <a class="nav-item nav-link" href="{{ url_for('mmp') }}">MMP</a>
                 <a class="nav-item nav-link" href="{{ url_for('dining') }}">Dining</a>
                 <a class="nav-item nav-link" href="{{ url_for('resources') }}">Resources</a>
-                <button type="button" class="btn btn-success btn-sm"><a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a></button>
-
+                <button type="button" class="btn btn-danger btn-sm px-0.05 py-1 p-0.5"><a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a></button>
                 <button type="button" class="btn btn-warning btn-sm">
                 <a class="nav-item nav-link" href="{{ url_for('account') }}"><img src="https://img.icons8.com/?size=100&id=kDoeg22e5jUY&format=png&color=000000" style="height: 1em;" alt=""></a>
                 </button>

@@ -19,9 +19,23 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(100), nullable=False)
     fisk_id = db.Column(db.String(7), unique=True, nullable=False)
 
+    # def get_reset_token(self, expires_sec=1800):
+    #     s = Serializer(app.config['SECRET_KEY'], expires_sec)
+    #     return s.dumps({'user_id': self.id}).decode('utf-8')
     def get_reset_token(self, expires_sec=1800):
+        # Make sure SECRET_KEY is used properly as a string
         s = Serializer(app.config['SECRET_KEY'], expires_sec)
-        return s.dumps({'user_id': self.id}).decode('utf-8')
+        
+        # Generate token
+        token = s.dumps({'user_id': self.id})
+        
+        # Log the token for debugging
+        print(f"Generated token: {token}")
+
+        # Decode the token to return a UTF-8 string
+        return token.decode('utf-8')
+
+
 
     @staticmethod
     def verify_reset_token(token):
