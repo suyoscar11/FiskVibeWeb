@@ -18,6 +18,7 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(100), nullable=False) 
     last_name = db.Column(db.String(100), nullable=False)
     fisk_id = db.Column(db.String(7), unique=True, nullable=False)
+    posts = db.relationship('Post', backref='author', lazy=True)
 
     # def get_reset_token(self, expires_sec=1800):
     #     s = Serializer(app.config['SECRET_KEY'], expires_sec)
@@ -52,7 +53,7 @@ class User(db.Model, UserMixin):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
-    date_posted = db.Column(db.DateTime, nullable=False, default=db.Column(db.DateTime, default=lambda: datetime.now(tz=timezone.utc)))
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
