@@ -1,79 +1,90 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
-    <!-- removing bg pic for login -->
+  <!-- removing bg pic for login -->
 
-    {% if title %}
-        <title>{{ title }} | FiskVibe</title>
-    {% else %}
-        <title>FiskVibe</title>
-    {% endif %}
+  {% if title %}
+  <title>{{ title }} | FiskVibe</title>
+  {% else %}
+  <title>FiskVibe</title>
+  {% endif %}
 </head>
+
 <body>
-    <div class="mobile-message">
-        <p>FiskVibe is coming soon for mobile phones too!</p>
-        <a href="https://drive.google.com/file/d/1mTVWs7ceadzawfnIFJvmE767VWys7oOC/view?usp=sharing" target="_blank" rel="noopener noreferrer"><div class="btn btn-primary btn-sm px-3 py-2 me-sm-3 fs-6 fw-bolder">Ideation file here</div></a>
-        <p>For now, please use a desktop device to access! Thank you!</p>
-        
-      </div>
+  <div class="mobile-message">
+    <p>FiskVibe is coming soon for mobile phones too!</p>
+    <a href="https://drive.google.com/file/d/1mTVWs7ceadzawfnIFJvmE767VWys7oOC/view?usp=sharing" target="_blank"
+      rel="noopener noreferrer">
+      <div class="btn btn-primary btn-sm px-3 py-2 me-sm-3 fs-6 fw-bolder">Ideation file here</div>
+    </a>
+    <p>For now, please use a desktop device to access! Thank you!</p>
 
-    <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-        <div class="container">
-          <a class="navbar-brand mr-4" href="/"><strong>FiskVibe</strong></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-              <!-- <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a> -->
-            </div>
-            <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-              {% if current_user.is_authenticated %}
-                <a class="nav-item nav-link" href="{{ url_for('feed') }}">Feed</a>
-                <a class="nav-item nav-link" href="{{ url_for('events') }}">Events</a>
-                <a class="nav-item nav-link" href="{{ url_for('mmp') }}">MMP</a>
-                <a class="nav-item nav-link" href="{{ url_for('dining') }}">Dining</a>
-                <a class="nav-item nav-link" href="{{ url_for('resources') }}">Resources</a>
-                <button type="button" class="btn btn-danger btn-sm px-0.05 py-1 p-0.5"><a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a></button>
-                <button type="button" class="btn btn-warning btn-sm">
-                <a class="nav-item nav-link" href="{{ url_for('account') }}"><img src="https://img.icons8.com/?size=100&id=kDoeg22e5jUY&format=png&color=000000" style="height: 1em;" alt=""></a>
-                </button>
+  </div>
 
-              {% else %}
-                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
-              {% endif %}
-            </div>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+      <div class="container">
+        <a class="navbar-brand mr-4" href="/"><strong>FiskVibe</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+          aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-auto">
+            <!-- <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a> -->
+          </div>
+          <!-- Navbar Right Side -->
+          <div class="navbar-nav">
+            {% if current_user.is_authenticated %}
+            <a class="nav-item nav-link" href="{{ url_for('feed') }}">Feed</a>
+            <a class="nav-item nav-link" href="{{ url_for('events') }}">Events</a>
+            <a class="nav-item nav-link" href="{{ url_for('mmp') }}">MMP</a>
+            <a class="nav-item nav-link" href="{{ url_for('dining') }}">Dining</a>
+            <a class="nav-item nav-link" href="{{ url_for('resources') }}">Resources</a>
+            <a href="{{ url_for('account') }}" class="btn btn-outline-warning btn-sm px-3 py-2 fw-bold text-white mr-2"
+              style="border-radius: 25px; transition: background-color 0.3s ease;">
+              Profile
+            </a>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger btn-sm px-3 py-2 fw-bold text-white"
+              style="border-radius: 25px; transition: background-color 0.3s ease;">
+              Logout
+            </a>
+            {% else %}
+            <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+            <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+            {% endif %}
           </div>
         </div>
-      </nav>
-    </header>
-    <main role="main" class="container">
-      <div class="row">
-        <div class="col-md">
-          {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-              {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">
-                  {{ message }}
-                </div>
-              {% endfor %}
-            {% endif %}
-          {% endwith %}
-          {% block content %}{% endblock %}
+      </div>
+    </nav>
+  </header>
+
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }} mb-3 mt-2" style="width: 50%; margin: auto;">
+          {{ message }}
         </div>
-        <!-- <div class="col-md-4">
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+      </div>
+      <!-- <div class="col-md-4">
           <div class="content-section">
             <h3>What's new at Fisk!</h3>
             <p class='text-muted'>Any info you need on the go!
@@ -86,14 +97,21 @@
             </p>
           </div>
         </div> -->
-      </div>
-    </main>
+    </div>
+  </main>
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

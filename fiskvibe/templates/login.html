@@ -5,7 +5,7 @@
             {{ form.hidden_tag() }}
             <div class="" style="margin-top: 0em; width: 50%; margin-left: auto; margin-right: auto; padding: 1em; background-color: rgba(98, 98, 98, 0); padding: 1em; text-align: center;">
                 <p class="text-muted" style="margin: auto; text-align: center;">
-                    Need Account?<a class="ml-2" href="{{ url_for('register') }}" style="display: inline-block; text-decoration: none; padding: 5px 20px; background-color: #007bff; color: white; border-radius: 10em;">Sign Up</a>
+                    Need Account?<a class="btn btn-primary btn-md ml-2" href="{{ url_for('register') }}" style="display: inline-block; text-decoration: none; padding: 5px 20px; color: rgb(255, 255, 255); border-radius: 10em;">Sign Up</a>
                 </p>
             </div>
             
@@ -43,7 +43,7 @@
                 </div>
             </fieldset>
             <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
+                {{ form.submit(class="btn btn-primary btn-lg btn-block") }}
                 <small class="text-muted ml-2">
                     <a href="{{ url_for('reset_request') }}">Forgot Password?</a>
                 </small>

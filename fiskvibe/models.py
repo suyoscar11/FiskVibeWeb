@@ -35,8 +35,6 @@ class User(db.Model, UserMixin):
         # Decode the token to return a UTF-8 string
         return token.decode('utf-8')
 
-
-
     @staticmethod
     def verify_reset_token(token):
         s = Serializer(app.config['SECRET_KEY'])

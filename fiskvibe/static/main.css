@@ -23,6 +23,7 @@ body {
   
   .site-header .navbar-nav .nav-link.active {
     font-weight: 500;
+    font-size: large;
   }
   
   .content-section {
