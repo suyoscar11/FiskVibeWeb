@@ -3,7 +3,10 @@ body {
   margin-top: 5rem;
   color: #3d3d3db5;
 }
-
+.nav{
+  width: 20%;
+  margin: auto;
+}
   
   h1, h2, h3, h4, h5, h6 {
     color: #444444;

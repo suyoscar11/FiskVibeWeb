@@ -92,7 +92,8 @@
 }
 
 body {
-  margin: 0;
+  margin: auto;
+  width: 80%;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
@@ -3604,6 +3605,8 @@ textarea.form-control-lg {
 }
 
 .nav {
+  width: 80%;
+  margin: auto;
   --bs-nav-link-padding-x: 1rem;
   --bs-nav-link-padding-y: 0.5rem;
   --bs-nav-link-font-weight: ;
@@ -3613,8 +3616,8 @@ textarea.form-control-lg {
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
-  margin-bottom: 0;
   list-style: none;
+
 }
 
 .nav-link {
