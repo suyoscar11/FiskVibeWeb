@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
-    first_name = db.Column(db.String(100), nullable=False) 
+    first_name = db.Column(db.String(100), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
     fisk_id = db.Column(db.String(7), unique=True, nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)

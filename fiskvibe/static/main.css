@@ -27,7 +27,8 @@ body {
   }
   
   .content-section {
-    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.027) 0px 6px 15px 0px, rgba(0, 0, 0, 0.027) 0px 0px 0px 0.3px;
+    background: #fefefe;
     padding: 20px 20px;
     border: 1px solid #dddddd;
     border-radius: 10px;
@@ -35,6 +36,11 @@ body {
     width: 50%;
     margin: auto;
 
+  }
+
+  .content-section:hover {
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 6px 15px 0px, rgba(0, 0, 0, 0.07) 0px 0px 0px 0.3px;
+    
   }
   
   .article-title {
