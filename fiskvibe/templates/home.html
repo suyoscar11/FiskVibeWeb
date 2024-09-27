@@ -27,28 +27,29 @@
     <main class="flex-shrink-0">
 
         <!-- Header-->
-        <header class="bg-light py-5" style="border-radius: 1.5em; margin-bottom: 2em; margin-top: 1em; padding: 3em">
+        <header class="bg-light px-2" style="border-radius: 1.5em; margin-bottom: 2em; margin-top: 5em; padding: -1em">
             <div class="container px-5 pb-5 px-2 py-3 d-flex flex-column align-items-center justify-content-center"
                 style="width: 90%; margin: auto">
                 <div class="row gx-5 align-items-center">
                     <div class="col-xxl-5">
                         <!-- Header text content-->
                         <div class="text-center text-xxl-start">
-                            <div class="badge bg-dark mb-10">
+                            <div class="badge bg-dark mb-10 px-3 py-2 mb-3">
                                 <div class="text-uppercase">Simple &middot; useful &middot; Organized</div>
                             </div>
                             <div class="fs-3 fw-light text-muted"><strong>Reimagining the digital experience at Fisk
                                     University.</strong></div>
                             <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient dd-inline">
-                            <img src="static/assets/logo.png" alt="" style="height: 67.5px; width: 300px;">
+                                    <img src="static/assets/logo.png" alt=""
+                                        style="height: 110px; width: 300px; margin-top: 1em;">
                         </div>
                         <div class="text-center text-xxl-start">
                             </span></h1>
                             <div
                                 class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
                                 {% if current_user.is_authenticated %}
-                                <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder"
-                                    style="color: white;">Welcome <strong>{{ current_user.first_name }}</strong>! You're
+                                <a class="btn btn-dark btn-lg px-4 py-3 me-sm-3 fs-6 fw-bolder" style="color: white;">Hi
+                                    <strong>{{ current_user.first_name }}</strong>! You're
                                     now logged in.</a>
                                 {% else %}
                                 <a class="btn btn-primary btn-lg px-4 py-2 me-sm-30 fs-10 fw-bolder"
@@ -65,19 +66,22 @@
                             <div class="profile">
                                 <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
                                 <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
-<div>
-    {% if current_user.is_authenticated %}
-        <!-- Display when user is authenticated -->
-        <img class="profile-img" src="static/assets/fisk.png" alt="..."
-        style="height: 150px; width: 370px; position: absolute; right: 0; top: 50%; transform: translateY(-50%); margin-right: 20px;" />
-    {% else %}
-        <!-- Display when user is not authenticated -->
-        <img class="profile-img" src="static/assets/profile.png" alt="..."
-        style="border-radius: 50%; height: 75vh; width: 75vh; border: 5px solid rgba(255, 154, 3, 0.303); margin-top: -50px;" />
-    {% endif %}
-</div>
+                                <div>
+                                    {% if current_user.is_authenticated %}
+                                    <!-- Display when user is authenticated -->
+                                    <img class="profile-img" src="static/assets/hi.gif" alt="..."
+                                        style="height: 370px; width: 370px; position: absolute; right: 0; top: 50%; transform: translateY(-50%); margin-right: 20px; background-color: rgba(209, 209, 209, 0.41); border-radius: 3em; margin-bottom: 10px;" />
+                                    {% else %}
+                                    
+                                    <div class="img-fluid" style="opacity: 90%;">
+                                        <img class="profile-img" src="static/assets/profile.png" alt="..."/>
+                                    </div>
+                                    <!-- Display when user is not authenticated -->
 
+                                    {% endif %}
                                 </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>

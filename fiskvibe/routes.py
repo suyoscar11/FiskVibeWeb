@@ -226,7 +226,7 @@ def delete_post(post_id):
     db.session.delete(post)
     db.session.commit()
     flash('Your post has been deleted!', 'success')
-    return redirect(url_for('home'))
+    return redirect(url_for('feed'))
 
 
 @app.route("/reset_password", methods=['GET', 'POST'])
