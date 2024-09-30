@@ -53,9 +53,9 @@
                                     now logged in.</a>
                                 {% else %}
                                 <a class="btn btn-primary btn-lg px-4 py-2 me-sm-30 fs-10 fw-bolder"
-                                    href="http://127.0.0.1:5000/login">Login</a>
+                                    href="{{ url_for('login') }}">Login</a>
                                 <a class="btn btn-dark btn-lg px-4 py-2 fs-10 fw-bolder"
-                                    href="http://127.0.0.1:5000/register">Register</a>
+                                    href="{{ url_for('register') }}">Register</a>
                                 {% endif %}
                             </div>
                         </div>
