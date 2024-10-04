@@ -65,8 +65,12 @@ def home():
 
 @app.route("/feed")
 def feed():
-    posts = Post.query.all()
-    return render_template('feed.html', title='Feed', posts=posts)
+    form = PostForm()  # Initialize the form
+    # posts = get_posts()  # Assuming this gets posts for the feed
+    page = request.args.get('page', 1, type=int)
+    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
+    return render_template('feed.html', posts=posts, form=form)
+
 
 @app.route("/events")
 def events():
@@ -188,8 +192,8 @@ def new_post():
         db.session.commit()
         flash('Your post has been created!', 'success')
         return redirect(url_for('feed'))
-    return render_template('create_post.html', title='New Post',
-                           form=form, legend='New Post')
+    return render_template('feed.html', title='New Post',
+                           form=form, legend='New Post', posts=post)
 
 
 @app.route("/post/<int:post_id>")
@@ -214,7 +218,7 @@ def update_post(post_id):
     elif request.method == 'GET':
         form.title.data = post.title
         form.content.data = post.content
-    return render_template('create_post.html', title='Update Post',
+    return render_template('feed.html', title='Update Post',
                            form=form, legend='Update Post')
 
 
@@ -229,14 +233,7 @@ def delete_post(post_id):
     flash('Your post has been deleted!', 'success')
     return redirect(url_for('feed'))
 
-@app.route("/user/<string:username>")
-def user_posts(username):
-    page = request.args.get('page', 1, type=int)
-    user = User.query.filter_by(username=username).first_or_404()
-    posts = Post.query.filter_by(author=user)\
-        .order_by(Post.date_posted.desc())\
-        .paginate(page=page, per_page=5)
-    return render_template('feed.html', posts=posts, user=user)
+
 
 
 
@@ -270,3 +267,12 @@ def reset_token(token):
         return redirect(url_for('login'))
     return render_template('reset_token.html', title='Reset Password', form=form)
 
+
+@app.route("/user/<string:username>")
+def user_posts(username):
+    page = request.args.get('page', 1, type=int)
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = Post.query.filter_by(author=user)\
+        .order_by(Post.date_posted.desc())\
+        .paginate(page=page, per_page=5)
+    return render_template('user_posts.html', posts=posts, user=user)
