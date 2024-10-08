@@ -63,21 +63,20 @@
             <a class="nav-item nav-link" href="{{ url_for('mmp') }}">MMP</a>
             <a class="nav-item nav-link" href="{{ url_for('dining') }}">Dining</a>
             <a class="nav-item nav-link" href="{{ url_for('resources') }}">Resources</a>
-            <a href="{{ url_for('account') }}" class="btn btn-dark btn-sm px-3 py-2 fs-10 fw-bolder text-white mr-1" style="border-color: rgba(240, 248, 255, 0.225); border-radius: 10em;"
+            <a href="{{ url_for('account') }}" class="btn  btn-sm px-3 py-2 fs-10  text-white mr-1" style="border-color: rgba(240, 248, 255, 0.225); border-radius: 10em;"
               style="border-radius: 25px; transition: background-color 0.3s ease;">
-              myProfile
+              myProfile     
             </a>
             
-            <a href="https://answer-fisk.vercel.app/" class="btn btn-dark btn-sm px-3 py-2 fs-10 fw-bolder text-white mr-1" style="border-color: rgba(240, 248, 255, 0.225); border-radius: 10em;"
-              style="border-radius: 25px; transition: background-color 0.3s ease;" target="_blank" rel="noopener noreferrer">
-              AnswerFisk✨<span class="badge bg-primary badge-new">New</span>
+            <a href="https://answer-fisk.vercel.app/" class="btn  btn-sm px-3 py-2 fs-10  text-white mr-1" style="border-color: rgba(240, 248, 255, 0.225); border-radius: 10em;">
+              AnswerFisk✨ <span class="badge bg-primary badge-new">New</span>
             </a>
 
-            <a href="{{ url_for('logout') }}" class="btn btn-dark btn-sm px-3 py-2 fs-10 fw-bolder text-white " style="border-color: rgba(240, 248, 255, 0.225); border-radius: 10em;"
+            <a href="{{ url_for('logout') }}" class="btn  btn-sm px-3 py-2 fs-10  text-white " style="border-color: rgba(240, 248, 255, 0.225); border-radius: 10em;"
               style="border-radius: 25px; transition: background-color 0.3s ease;">
               Logout
             </a>
-            
+
             {% else %}
             <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
             <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
