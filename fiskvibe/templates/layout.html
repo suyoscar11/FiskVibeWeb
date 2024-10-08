@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="static/assets/fav.png">
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <link
+  href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+  rel="stylesheet" />
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+  <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}"> -->
 
   <!-- removing bg pic for login -->
 
@@ -23,7 +26,11 @@
 
 <body>
 
-
+<style>
+  body{
+    font-family: Plus Jakarta Sans;
+  }
+</style>
   <div class="mobile-message">
     <p>FiskVibe is coming soon for mobile phones too!</p>
     <a href="https://drive.google.com/file/d/1mTVWs7ceadzawfnIFJvmE767VWys7oOC/view?usp=sharing" target="_blank"
@@ -52,15 +59,15 @@
             
             <a class="nav-item nav-link" href="{{ url_for('feed') }}">Feed</a>
             <!-- <a class="nav-item nav-link" href="{{ url_for('new_post') }}">New Post</a> -->
-            <!-- <a class="nav-item nav-link" href="{{ url_for('events') }}">Events</a> -->
+            <a class="nav-item nav-link" href="{{ url_for('events') }}">Events</a>
             <!-- <a class="nav-item nav-link" href="{{ url_for('mmp') }}">MMP</a> -->
             <a class="nav-item nav-link" href="{{ url_for('dining') }}">Dining</a>
             <a class="nav-item nav-link" href="{{ url_for('resources') }}">Resources</a>
-            <a href="{{ url_for('account') }}" class="btn btn-outline-warning btn-sm px-3 py-2 fw-bold text-white mr-2"
+            <a href="{{ url_for('account') }}" class="btn btn-dark btn-sm px-3 py-2 fs-10 fw-bolder text-white mr-2" style="border-color: rgba(240, 248, 255, 0.225); border-radius: 10em;"
               style="border-radius: 25px; transition: background-color 0.3s ease;">
-              Profile
+              myProfile
             </a>
-            <a href="{{ url_for('logout') }}" class="btn btn-danger btn-sm px-3 py-2 fw-bold text-white"
+            <a href="{{ url_for('logout') }}" class="btn btn-dark btn-sm px-3 py-2 fs-10 fw-bolder text-white" style="border-color: rgba(240, 248, 255, 0.225); border-radius: 10em;"
               style="border-radius: 25px; transition: background-color 0.3s ease;">
               Logout
             </a>

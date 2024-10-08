@@ -1,20 +1,20 @@
 {% extends "layout.html" %}
 {% block content %}
 <style>
-    /* General Box Styling */
 /* General Box Styling */
 .servive-block {
     padding: 15px 20px;
     text-align: center;
     margin-bottom: 20px;
     border-radius: 1em;
-    background-color: #000000;
+    background-color: #25242a;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    min-height: 20px; /* Smaller height */
+    min-height: 200px; /* Standardize height */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-decoration: none;
 }
 
 /* Hover Effect for Service Block */
@@ -23,60 +23,62 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     text-decoration: none;
 }
+/* Remove underline for links */
+.servive-block a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from the parent */
+}
 
+.servive-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
 
 /* Icon Styling */
 i.icon-2x {
-    font-size: 2.5rem; /* Slightly smaller icon size */
+    font-size: 2.5rem; 
     margin-bottom: 10px;
-    color: #000000;
+    color: white; /* Consistent color for all icons */
     transition: color 0.3s ease;
 }
 
 .servive-block:hover i.icon-2x {
-    color: #f39c12; /* Change icon color on hover */
+    color: #ffffff; /* Change icon color on hover */
+    text-decoration: none;
 }
 
 /* Text Styling */
 .servive-block h2 {
-    font-size: 1.3rem; /* Smaller heading */
+    font-size: 1.3rem; 
     margin-bottom: 8px;
-    color: #1c1d1d;
+    color: white; /* Unified text color */
 }
 
 .servive-block p {
     font-size: 0.95rem;
     line-height: 1.4;
-    color: #5b5b5b;
+    color: #c0c0c0; /* Light text for readability */
 }
 
-
-/* Keep all blocks with the same height by setting min-height */
-.servive-block {
-    min-height: 200px;
-}
-
-/* Add subtle border and background color variation for each block */
+/* Background color for odd/even blocks to keep some variation */
 .servive-block:nth-child(odd) {
-    background-color: #f2f2f2;
+    background-color: #25242a; /* Dark background */
 }
 
 .servive-block:nth-child(even) {
-    background-color: #2c3e50;
+    background-color: #2c3e50; /* Slightly lighter background */
 }
-
-
 
 </style>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-<div class="btn btn-primary btn-md btn-block mb-4" style="width: 50%; margin: auto;">Resources for Fisk University Students</div>
+<div class="btn btn-dark btn-lg btn-block px-4 py-2 fs-10 fw-bolder text-white mb-4" style="border-color: rgba(240, 248, 255, 0.225); margin: auto">Resources for Fisk University Students</div>
 
 <div class="row margin-bottom-10">
     <div class="col-md-4 col-sm-6">
         <a href="https://www.fisk.edu/academics/academic-support/" target="_blank">
-            <div class="servive-block servive-block-light">
-                <i class="icon-2x color-light fa fa-graduation-cap"></i>
+            <div class="servive-block">
+                <i class="icon-2x fa fa-graduation-cap"></i>
                 <h2 class="heading-md">Academic Support</h2>
                 <p>Get help with tutoring, academic advising, and other support services offered to help you succeed academically.</p>
             </div>
@@ -85,8 +87,8 @@ i.icon-2x {
     
     <div class="col-md-4 col-sm-6">
         <a href="https://www.fisk.edu/career-services/" target="_blank">
-            <div class="servive-block servive-block-dark">
-                <i class="icon-2x color-light fa fa-briefcase"></i>
+            <div class="servive-block">
+                <i class="icon-2x fa fa-briefcase"></i>
                 <h2 class="heading-md">Career Services</h2>
                 <p>Explore career counseling, resume-building workshops, and internships to prepare for life after graduation.</p>
             </div>
@@ -96,7 +98,7 @@ i.icon-2x {
     <div class="col-md-4 col-sm-6">
         <a href="https://www.fisk.edu/student-affairs/student-health-and-counseling-center/" target="_blank">
             <div class="servive-block">
-                <i class="icon-2x color-light fa fa-heartbeat"></i>
+                <i class="icon-2x fa fa-heart"></i>
                 <h2 class="heading-md">Student Health & Counseling</h2>
                 <p>Access mental health support, counseling, and general health services to ensure your well-being on campus.</p>
             </div>
@@ -105,8 +107,8 @@ i.icon-2x {
 
     <div class="col-md-4 col-sm-6">
         <a href="https://www.fisk.edu/libraries/" target="_blank">
-            <div class="servive-block servive-block-dark">
-                <i class="icon-2x color-light fa fa-book"></i>
+            <div class="servive-block">
+                <i class="icon-2x fa fa-book"></i>
                 <h2 class="heading-md">Library Resources</h2>
                 <p>Explore Fisk's library services, including research assistance, book lending, and access to academic journals.</p>
             </div>
@@ -115,8 +117,8 @@ i.icon-2x {
 
     <div class="col-md-4 col-sm-6">
         <a href="https://www.fisk.edu/international-students/" target="_blank">
-            <div class="servive-block servive-block-dark">
-                <i class="icon-2x color-light fa fa-globe"></i>
+            <div class="servive-block">
+                <i class="icon-2x fa fa-globe"></i>
                 <h2 class="heading-md">International Student Resources</h2>
                 <p>Find assistance with visas, cultural adjustment, and academic guidance for international students.</p>
             </div>
@@ -125,8 +127,8 @@ i.icon-2x {
 
     <div class="col-md-4 col-sm-6">
         <a href="https://www.fisk.edu/student-affairs/student-activities/" target="_blank">
-            <div class="servive-block servive-block-dark">
-                <i class="icon-2x color-light fa fa-users"></i>
+            <div class="servive-block">
+                <i class="icon-2x fa fa-users"></i>
                 <h2 class="heading-md">Student Life & Activities</h2>
                 <p>Get involved with student clubs, events, and organizations to enrich your campus experience at Fisk.</p>
             </div>
@@ -134,29 +136,31 @@ i.icon-2x {
     </div>
 
     <div class="col-md-4 col-sm-6">
+        <a href="https://www.fisk.edu/admissions/financial-aid/" target="_blank">
+            <div class="servive-block">
+                <i class="icon-2x fa fa-info-circle"></i>
+                <h2 class="heading-md">Financial Aid</h2>
+                <p>Learn about scholarships, grants, and financial assistance options to help you manage your education costs.</p>
+            </div>
+        </a>
+    </div>
+    
+    <div class="col-md-4 col-sm-6">
         <a href="https://www.fisk.edu/technology-support/" target="_blank">
-            <div class="servive-block servive-block-dark">
-                <i class="icon-2x color-light fa fa-laptop"></i>
+            <div class="servive-block">
+                <i class="icon-2x fa fa-laptop"></i>
                 <h2 class="heading-md">IT Support</h2>
                 <p>Need tech help? Get assistance with Fisk University’s technology, including Wi-Fi, software, and hardware issues.</p>
             </div>
         </a>
     </div>
 
-    <div class="col-md-4 col-sm-6">
-        <a href="https://www.fisk.edu/admissions/financial-aid/" target="_blank">
-            <div class="servive-block servive-block-dark">
-                <i class="icon-2x color-light fa fa-dollar-sign"></i>
-                <h2 class="heading-md">Financial Aid</h2>
-                <p>Learn about scholarships, grants, and financial assistance options to help you manage your education costs.</p>
-            </div>
-        </a>
-    </div>
+   
 
     <div class="col-md-4 col-sm-6">
         <a href="https://www.fisk.edu/campus-safety/" target="_blank">
-            <div class="servive-block servive-block-dark">
-                <i class="icon-2x color-light fa fa-shield-alt"></i>
+            <div class="servive-block">
+                <i class="icon-2x fa fa-info-circle"></i>
                 <h2 class="heading-md">Campus Safety</h2>
                 <p>Stay informed about safety protocols and services on campus, including emergency contacts and security measures.</p>
             </div>
@@ -164,6 +168,4 @@ i.icon-2x {
     </div>
 </div>
 
-
-</div>
 {% endblock content %}

@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<div class="content-section" style="width: 70%; margin: auto;">
+<div class="content-section text-white" style="width: 70%; margin: auto;">
   <form method="POST" action="">
       {{ form.hidden_tag() }}
       <fieldset class="form-group">
-          <legend class="border-bottom mb-4">{{ legend }}</legend>
+          <legend class=" mb-4">{{ legend }}</legend>
           <div class="form-group">
-              {{ form.title.label(class="form-control-label") }}
+              {{ form.title.label(class="form-control-label text-white") }}
               {% if form.title.errors %}
                   {{ form.title(class="form-control form-control-lg is-invalid") }}
                   <div class="invalid-feedback">
@@ -16,11 +16,11 @@
                       {% endfor %}
                   </div>
               {% else %}
-                  {{ form.title(class="form-control form-control-lg") }}
+                  {{ form.title(class="form-control form-control-lg bg-dark") }}
               {% endif %}
           </div>
           <div class="form-group">
-              {{ form.content.label(class="form-control-label") }}
+              {{ form.content.label(class="form-control-label text-white") }}
               {% if form.content.errors %}
                   {{ form.content(class="form-control form-control-lg is-invalid") }}
                   <div class="invalid-feedback">
@@ -29,7 +29,7 @@
                       {% endfor %}
                   </div>
               {% else %}
-                  {{ form.content(class="form-control form-control-lg") }}
+                  {{ form.content(class="form-control form-control-lg bg-dark") }}
               {% endif %}
           </div>
       </fieldset>
