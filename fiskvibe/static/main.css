@@ -5,28 +5,41 @@ body {
   color: #3d3d3db5;
   background-color: #1a191b;
 }
-.nav{
-  width: 20%;
+.navbar, .site-header {
+  width: 78vw; /* Ensure the navbar spans the full viewport width */
   margin: auto;
+  padding-top: 40;
+  border-radius: 1em;
+  margin-top: 1em;
 }
+
+.nav, .nav-link {
+  width: 80vw; /* Ensure the navbar spans the full viewport width */
+  width: 100%;
+  margin: 0 auto;
+  text-align: center; /* Optional: Center align the nav links */
+}
+
   
   h1, h2, h3, h4, h5, h6 {
     color: #444444;
   }
   
   .bg-steel {
-    background-color: rgb(2, 13, 49);
+    background-color: #001b74;
+    border: 0.12em solid rgba(255, 255, 255, 0.273);
   }
   
   .site-header .navbar-nav .nav-link {
-    color: #cbd5db;
-  }
-  
-  .site-header .navbar-nav .nav-link:hover {
     color: #ffffff;
   }
   
+  .site-header .navbar-nav .nav-link:hover {
+    color: #ffffffb8;
+  }
+  
   .site-header .navbar-nav .nav-link.active {
+    color: #ffffff;
     font-weight: 500;
     font-size: large;
   }
