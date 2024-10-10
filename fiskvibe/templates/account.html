@@ -1,5 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
+<style>
+.form-control{
+    border: none;
+}
+.form-control-file{
+    border-radius: 2em;
+}
+</style>
     <div class="content-section mb-4 mt-4" style="width: 60%;">
       <div class="media">
         <img class="rounded-circle account-img" src="{{ image_file }}">
@@ -14,7 +22,7 @@
             <fieldset class="form-group mt-4">
                 <legend class=" mb-4 text-white">Your Profile Info:</legend>
                 <div class="form-group">
-                    {{ form.picture.label(class="form-control-label text-muted") }}
+                    {{ form.picture.label(class="form-control-label text-muted ") }}
                     {{ form.picture(class="form-control-file text-muted") }}
                     {% if form.picture.errors %}
                         {% for error in form.picture.errors %}
@@ -24,7 +32,7 @@
                 </div>
 
                 <div class="form-group">
-                    {{ form.username.label(class="form-control-label text-muted") }}
+                    {{ form.username.label(class="form-control-label text-muted ") }}
 
                     {% if form.username.errors %}
                         {{ form.username(class="form-control form-control-lg is-invalid") }}

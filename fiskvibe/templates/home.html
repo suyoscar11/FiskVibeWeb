@@ -2,8 +2,7 @@
 {% block content %}
 
 <!DOCTYPE html>
-<html lang="en">
-    <html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="utf-8" />
@@ -15,8 +14,7 @@
     <!-- Custom Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;800&display=swap"
         rel="stylesheet" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
@@ -24,13 +22,12 @@
     <link href="static/main.css" rel="stylesheet" />
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100" style="background: linear-gradient(135deg, #060320, #040225, #01011c); color: white;">
     <main class="flex-shrink-0">
-
         <!-- Header-->
-        <header class="px-2 d-flex justify-content-evenly"
-            style="border-radius: 1.5em; margin-bottom: 2em; background-color: #25242a;">
-            <div class="container px-1 pb-50 px-5">
+        <header class="d-flex justify-content-evenly align-items-center py-4"
+            style="border-radius: 1.5em; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); margin-bottom: 2em;">
+            <div class="container px-1 pb-4 px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-xxl-5">
                         <!-- Header text content-->
@@ -38,71 +35,49 @@
                             <div class="badge bg-light mb-10 px-3 py-2 mb-3 text-dark">
                                 <div class="text-uppercase">DEMO APP. STILL DEVELOPING!</div>
                             </div>
-                            <div class="fs-3 text-light"><strong>Reimagining the digital experience at Fisk
+                            <div class="fs-6 text-light "><strong><h2></h2>Reimagining the digital experience <br> at Fisk
                                     University.</strong></div>
-                            <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient dd-inline">
+                            <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">
                                     <img src="static/assets/logo2.png" alt=""
                                         style="height: 119px; width: 300px; margin-top: 1em;">
-                        </div>
-                        <div class="text-xxl-end ml-9">
-                            </span></h1>
+                                </span></h1>
                             <div class="text-center text-xxl-start" style="height: 100%; min-height: 3rem;">
                                 {% if current_user.is_authenticated %}
                                 <a class="btn btn-dark btn-lg px-4 py-2 fs-10 fw-bolder text-white"
-                                    style="border-color: rgba(240, 248, 255, 0.225);">Hi <strong>{{ current_user.first_name }}</strong>! You're now logged in.</a>
+                                    style="border-color: rgba(240, 248, 255, 0.225); background: rgba(255, 255, 255, 0.1);">Hi
+                                    <strong>{{ current_user.first_name }}</strong>! You're now logged in.</a>
                                 {% else %}
-                                <a class="btn btn-primary btn-lg px-4 py-2 me-sm-3 fs-10 fw-bolder" href="{{ url_for('login') }}">Login</a>
-                                <a class="btn btn-dark btn-lg px-4 py-2 fs-10 fw-bolder" href="{{ url_for('register') }}"
-                                    style="border-color: rgba(240, 248, 255, 0.225);">Register</a>
+                                <a class="btn btn-primary btn-lg px-4 py-2 me-sm-3 mr-2 fs-10 fw-bolder"
+                                    href="{{ url_for('login') }}">Login</a>
+                                <a class="btn btn-dark btn-lg px-4 py-2 fs-10 fw-bolder"
+                                    href="{{ url_for('register') }}"
+                                    style="border-color: rgba(240, 248, 255, 0.225); background: rgba(255, 255, 255, 0.1);">Register</a>
                                 {% endif %}
                             </div>
-                            
                         </div>
                     </div>
-                    <div class="col-xl-7">
-                        <!-- Header profile picture-->
-                        <!-- <div class="d-flex justify-content-center mt-5 mt-xl-0" style="width: 80%; height: 80%;">
-                            <div class="profile"> -->
-                        <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
-                        <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
-                        <div>
-                            {% if current_user.is_authenticated %}
-                            <div class="d-flex justify-content-center align-items-center mt-4 mb-4" style="height: 100%; min-height: 35rem;">
-                                <div class="container d-flex justify-content-center align-items-center"
-                                    style="width: 30rem; height: 35rem; background-color: #25242a; border: none;">
-                                    <img class="card-img-top" src="static/assets/profile.png" alt="Card image cap"
-                                        style="border: 0.17em solid rgba(255, 255, 255, 0.273); border-radius: 50%; max-width: 100%; height: auto;">
-                                </div>
+                    <div class="col-xl-7 d-flex justify-content-center">
+                        <!-- Profile image with cool effect-->
+                        <div class="profile-container mt-4" style="position: relative; max-width: 350px;">
+                            <div class="glass-effect"
+                                style="position: absolute; inset: 0; border-radius: 50%; z-index: -1; filter: blur(20px); background: rgba(255, 255, 255, 0.2);">
                             </div>
-                            
-                            {% else %}
-                            <div class="d-flex justify-content-center align-items-center mt-4 mb-4" style="height: 100%; min-height: 35rem;">
-                                <div class="container d-flex justify-content-center align-items-center"
-                                    style="width: 30rem; height: 35rem; background-color: #25242a; border: none;">
-                                    <img class="card-img-top" src="static/assets/profile.png" alt="Card image cap"
-                                        style="border: 0.17em solid rgba(255, 255, 255, 0.273); border-radius: 50%; max-width: 100%; height: auto;">
-                                </div>
-                            </div>
-                            
-                            {% endif %}
+                            <img class="profile-img"
+                                src="static/assets/profile.png"
+                                style="border: 0.2em solid rgba(255, 255, 255, 0.4); border-radius: 50%; width: 100%; height: auto; object-fit: cover;">
                         </div>
-                        
-
+                    </div>
                 </div>
             </div>
-            </div>
-            </div>
-            </div>
         </header>
+
         <!-- About Section-->
-        <section class="py-5 mb-3" style="border-radius: 1.5em; background-color: #25242a;">
+        <section class="py-5 mb-3" style="border-radius: 1.5em; background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px);">
             <div class="container px-5">
                 <div class="row gx-5 justify-content-center">
                     <div class="col-xxl-11">
                         <div class="text-center my-5">
-                            <h2 class="display-5 fw-bolder"><span class="text-light">What is
-                                    FiskVibe?</span></h2>
-                            <p class="lead fw-light mb-4"></p>
+                            <h2 class="display-5 fw-bolder"><span class="text-light">What is FiskVibe?</span></h2>
                             <p class="text-muted">FiskVibe serves as the ultimate platform for Fisk University students,
                                 revolutionizing campus information access. By eliminating the need to switch between
                                 multiple apps, FiskVibe consolidates all the requirements—event updates, student
@@ -110,39 +85,43 @@
                                 Effortlessly sign up, connect with like-minded peers, and let our AI chatbot assist with
                                 any inquiries—whether it's locating the right contact for your SSN, exploring new campus
                                 activities, or suggesting a unique nickname for you.</p>
-
-                            <!-- <a href="https://drive.google.com/file/d/1mTVWs7ceadzawfnIFJvmE767VWys7oOC/view?usp=sharing"
-                                target="_blank" rel="noopener noreferrer">
-                                <div class="btn btn-dark btn-lg px-4 py-2 fs-10 fw-bolder text-muted" style="border-color: rgba(240, 248, 255, 0.225);">Ideation file here
-                                </div>
-
-                            </a> -->
-                            
-                            <a href="https://drive.google.com/file/d/1mTVWs7ceadzawfnIFJvmE767VWys7oOC/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                                <div class="btn btn-dark btn-md px-4 mr-2 py-2 fs-10 fw-bolder text-muted" style="border-color: rgba(240, 248, 255, 0.225); text-decoration: none;">Ideation file
-                                </div>
-                            </a>
-
-                            <a href="https://forms.gle/d7RpwySVbgoewj6v7" target="_blank" rel="noopener noreferrer">
-                                <div class="btn btn-dark btn-md px-4 py-2 fs-10 fw-bolder text-muted" style="border-color: rgba(240, 248, 255, 0.225);">Feedback us
-                                </div>
-                            </a>
-
-                            
-                            <div class="d-flex justify-content-center fs-2 gap-4" style="margin-top: 0.5em;">
-                                <a class="text-muted" href="https://www.linkedin.com/company/fiskvibee/"><i
-                                        class="bi bi-linkedin"></i></a>
-                                <a class="text-muted" href="#!"><i class="bi bi-github"></i></a>
-                                <a class="text-muted" href="#!"><i class="bi bi-instagram"></i></a>
+                            <div class="btn-container d-flex justify-content-center gap-4">
+                                <a href="https://drive.google.com/file/d/1mTVWs7ceadzawfnIFJvmE767VWys7oOC/view?usp=sharing"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <div class="btn btn-dark btn-md px-4 py-2 fs-10 fw-bolder text-muted mr-2"
+                                        style="border-color: rgba(240, 248, 255, 0.225); background: rgba(255, 255, 255, 0.1);">
+                                        Ideation file
+                                    </div>
+                                </a>
+                                <a href="https://forms.gle/d7RpwySVbgoewj6v7" target="_blank" rel="noopener noreferrer">
+                                    <div class="btn btn-dark btn-md px-4 py-2 fs-10 fw-bolder text-muted"
+                                        style="border-color: rgba(240, 248, 255, 0.225); background: rgba(255, 255, 255, 0.1);">
+                                        Feedback us
+                                    </div>
+                                </a>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        
+        <div class="content mt-4">
+            <section class="welcome">
+                <div class="container text-center my-5">
+                    <h2 class="fs-2 text-white">Welcome to FiskVibe!</h2>
+                    <p class="lead text-muted">Your hub for campus events, resources, and connections. Explore the vibrant life at Fisk University!</p>
+                </div>
+            </section>
+
+            <footer class="text-center my-2">
+                <p>&copy; 2024 FiskVibe @ Fisk University. All rights reserved.</p>
+            </footer>
+        </div>
+        
     </main>
 </body>
 
 </html>
-
-{% endblock content %}
+{% endblock %}

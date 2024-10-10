@@ -166,3 +166,30 @@ html {
   scrollbar-width: thin; /* Thin scrollbar */
   scrollbar-color: #5d5d5d #25242a; /* Thumb color (grey) and track color (light grey) */
 }
+
+/* buttons */
+
+.welcome {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 40px 0;
+  border-radius: 1em;
+}
+
+.features {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 40px 0;
+  border-radius: 1em;
+}
+
+.features .card {
+  border: none; /* Remove default card border */
+  background: rgba(255, 255, 255, 0.2); /* Add a glass effect */
+}
+
+.testimonials {
+  padding: 40px 0;
+}
+
+footer {
+  padding: 20px 0;
+}
