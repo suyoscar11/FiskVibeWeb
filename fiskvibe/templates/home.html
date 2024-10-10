@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="utf-8" />
@@ -20,7 +21,7 @@
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="static/css/styles.css" rel="stylesheet" />
+    <link href="static/main.css" rel="stylesheet" />
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -28,7 +29,7 @@
 
         <!-- Header-->
         <header class="px-2 d-flex justify-content-evenly"
-            style="border-radius: 1.5em; margin-bottom: 2em; margin-top: 5em; background-color: #25242a;">
+            style="border-radius: 1.5em; margin-bottom: 2em; background-color: #25242a;">
             <div class="container px-1 pb-50 px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-xxl-5">
@@ -40,26 +41,22 @@
                             <div class="fs-3 text-light"><strong>Reimagining the digital experience at Fisk
                                     University.</strong></div>
                             <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient dd-inline">
-                                    <img src="static/assets/logo.png" alt=""
-                                        style="height: 115px; width: 300px; margin-top: 1em;">
+                                    <img src="static/assets/logo2.png" alt=""
+                                        style="height: 119px; width: 300px; margin-top: 1em;">
                         </div>
                         <div class="text-xxl-end ml-9">
                             </span></h1>
-                            <div
-                                class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
+                            <div class="text-center text-xxl-start" style="height: 100%; min-height: 3rem;">
                                 {% if current_user.is_authenticated %}
-                                <a class="btn btn-dark btn-lg px-4 py-2 fs-10 fw-bolder text-white" style="border-color: rgba(240, 248, 255, 0.225);">Hi
-                                    <strong>{{ current_user.first_name }}</strong>! You're
-                                    now logged in.
-                                </a>
+                                <a class="btn btn-dark btn-lg px-4 py-2 fs-10 fw-bolder text-white"
+                                    style="border-color: rgba(240, 248, 255, 0.225);">Hi <strong>{{ current_user.first_name }}</strong>! You're now logged in.</a>
                                 {% else %}
-                                <a class="btn btn-primary btn-lg px-4 py-2 me-sm-30 fs-10 fw-bolder"
-                                    href="{{ url_for('login') }}">Login</a>
-                                <a class="btn btn-dark btn-lg px-4 py-2 fs-10 fw-bolder"
-                                    href="{{ url_for('register') }}"
+                                <a class="btn btn-primary btn-lg px-4 py-2 me-sm-3 fs-10 fw-bolder" href="{{ url_for('login') }}">Login</a>
+                                <a class="btn btn-dark btn-lg px-4 py-2 fs-10 fw-bolder" href="{{ url_for('register') }}"
                                     style="border-color: rgba(240, 248, 255, 0.225);">Register</a>
                                 {% endif %}
                             </div>
+                            
                         </div>
                     </div>
                     <div class="col-xl-7">
@@ -70,41 +67,26 @@
                         <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
                         <div>
                             {% if current_user.is_authenticated %}
-                            <div class="container mt-4 mb-4 ml-5 "
-                            style="width: 30rem; height: 35rem; background-color: #25242a; border: none;">
-                            <img class="card-img-top mt-1" src="static/assets/profile.png" alt="Card image cap"
-                                style="border: 0.17em solid rgba(255, 255, 255, 0.273);border-radius: 50%; ">
-                                    <!-- <h5 class="card-title">Card title</h5> -->
-
-                                    <!-- <p class="card-text text-light">Built for Fisk University</p> -->
-                                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                            <div class="d-flex justify-content-center align-items-center mt-4 mb-4" style="height: 100%; min-height: 35rem;">
+                                <div class="container d-flex justify-content-center align-items-center"
+                                    style="width: 30rem; height: 35rem; background-color: #25242a; border: none;">
+                                    <img class="card-img-top" src="static/assets/profile.png" alt="Card image cap"
+                                        style="border: 0.17em solid rgba(255, 255, 255, 0.273); border-radius: 50%; max-width: 100%; height: auto;">
                                 </div>
                             </div>
-                            <!-- <img src="static/assets/fisk_people.jpg" class="rounded float-right" alt="Responsive image"> -->
-                            <!-- Display when user is authenticated -->
-                            <!-- <img class="profile-img" src="static/assets/hi.gif" alt="..." -->
-                            <!-- style="height: 400px; width: 400px; position: absolute; right: 0; top: 50%; transform: translateY(-50%); margin-right: 20px; background-color: rgba(209, 209, 209, 0.248); border-radius: 3em; margin-bottom: 10px;" /> -->
+                            
                             {% else %}
-                            <div class="container mt-4 mb-4 ml-5 "
-                                style="width: 30rem; height: 35rem; background-color: #25242a; border: none;">
-                                <img class="card-img-top mt-1" src="static/assets/profile.png" alt="Card image cap"
-                                    style="border: 0.17em solid rgba(255, 255, 255, 0.273);border-radius: 50%; ">
-                                <!-- <div class="card-body"> -->
-                                <!-- <h5 class="card-title">Card title</h5> -->
-
-                                <!-- <p class="card-text text-light">Built for Fisk University</p> -->
-                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                                <!-- </div> -->
+                            <div class="d-flex justify-content-center align-items-center mt-4 mb-4" style="height: 100%; min-height: 35rem;">
+                                <div class="container d-flex justify-content-center align-items-center"
+                                    style="width: 30rem; height: 35rem; background-color: #25242a; border: none;">
+                                    <img class="card-img-top" src="static/assets/profile.png" alt="Card image cap"
+                                        style="border: 0.17em solid rgba(255, 255, 255, 0.273); border-radius: 50%; max-width: 100%; height: auto;">
+                                </div>
                             </div>
-                            <!-- <img src="static/assets/fisk_people.jpg" alt="..." class="rounded mx-auto d-block" alt="..."> -->
-
-                            <!-- <div class="" style="opacity: 90%; width: 80%;"> -->
-                            <!-- <img class="profile-img mb-10" src="static/assets/fisk.png" alt="..." style="opacity: 90%;;height: 440px; transform: translateY(-10% 90%); width: 550px; border-radius: 2em;"/> -->
+                            
+                            {% endif %}
                         </div>
-                        <!-- Display when user is not authenticated -->
-
-                        {% endif %}
-                    </div>
+                        
 
                 </div>
             </div>
@@ -137,7 +119,7 @@
                             </a> -->
                             
                             <a href="https://drive.google.com/file/d/1mTVWs7ceadzawfnIFJvmE767VWys7oOC/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                                <div class="btn btn-dark btn-md px-4 py-2 fs-10 fw-bolder text-muted" style="border-color: rgba(240, 248, 255, 0.225); text-decoration: none;">Ideation file
+                                <div class="btn btn-dark btn-md px-4 mr-2 py-2 fs-10 fw-bolder text-muted" style="border-color: rgba(240, 248, 255, 0.225); text-decoration: none;">Ideation file
                                 </div>
                             </a>
 
