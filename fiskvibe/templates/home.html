@@ -48,10 +48,10 @@
                                     <strong>{{ current_user.first_name }}</strong>! You're now logged in.</a>
                                 {% else %}
                                 <a class="btn btn-primary btn-lg px-4 py-2 me-sm-3 mr-2 fs-10 fw-bolder"
-                                    href="{{ url_for('login') }}">Login</a>
+                                    href="{{ url_for('login') }}"><strong>Login</strong></a>
                                 <a class="btn btn-dark btn-lg px-4 py-2 fs-10 fw-bolder"
                                     href="{{ url_for('register') }}"
-                                    style="border-color: rgba(240, 248, 255, 0.225); background: rgba(255, 255, 255, 0.1);">Register</a>
+                                    style="border-color: rgba(240, 248, 255, 0.225); background: rgba(255, 255, 255, 0.1);"><strong>Register</strong></a>
                                 {% endif %}
                             </div>
                         </div>

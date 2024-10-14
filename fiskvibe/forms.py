@@ -67,6 +67,13 @@ class UpdateAccountForm(FlaskForm):
             user = User.query.filter_by(username=username.data).first()
             if user:
                 raise ValidationError('That username is taken. Please choose a different one.')
+            
+    def validate_fisk_id(self, fisk_id):
+        if fisk_id.data != current_user.fisk_id:
+            user = User.query.filter_by(fisk_id=fisk_id.data).first()
+            if user:
+                raise ValidationError('That ID is taken. Please use your valid ID number.')
+    
 
     def validate_email(self, email):
         if email.data != current_user.email:
