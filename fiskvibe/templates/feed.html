@@ -6,12 +6,13 @@
   }
 
 </style>
-<div class="content-section text-white " style="width: 70%; margin: auto; margin-top: 2em;">
+<div class="content-section text-white mb-3" style="width: 75%; margin: auto; margin-top: 2em;">
   <form method="POST" action="">
       {{ form.hidden_tag() }}
-      <fieldset class="form-group">
-          <legend class=" mb-4">{{ legend }}</legend>
-          <div class="form-group">
+      <fieldset class="form-group mt-2">
+          <!-- <legend class=" mb-4">{{ legend }}</legend> -->
+           <p1 class="text-white px-3" style="background-color: rgb(0, 102, 254); border-radius: 0.5em; padding: 0.5em;">What's new at Fisk | Discuss & Share</p1>
+          <div class="form-group mt-4">
               {{ form.title.label(class="form-control-label text-white") }}
               {% if form.title.errors %}
                   {{ form.title(class="form-control form-control-lg is-invalid") }}
@@ -45,29 +46,23 @@
 </div>
 
 
-
-
-
-
-
-
 <!-- <button type="button" class="btn btn-primary btn-md btn-block mb-3" style="width: 60%; margin: auto;">What's new at Fisk</button> -->
     {% for post in posts.items %}
     
-        <article class="media content-section mb-3" style="width: 70%; margin: auto;">
+        <article class="media content-section mb-3" style="width: 75%; margin: auto;">
           <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ post.author.first_name.title() + ' ' + post.author.last_name.title()}}</a>
               <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
             </div>
-            <h2><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
+            <h2><a class="article-title text-white" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+            <p class="article-content text-white">{{ post.content }}</p>
           </div>
         </article>
 
     {% endfor %}
-    <section style="width: 70%;">
+    <section class="container" style="width: 70%;">
       {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
       {% if page_num %}
         {% if posts.page == page_num %}
